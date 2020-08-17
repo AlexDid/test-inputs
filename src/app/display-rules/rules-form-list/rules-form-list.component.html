@@ -1,0 +1,21 @@
+<div class="rules">
+  <div *ngFor="let rule of rules; let i = index" class="rule-form">
+    <div *ngIf="i > 0" class="separator">OR</div>
+    <div class="rule-row">
+      <app-rule-form
+        [formValue]="rule"
+        (formChanges)="updateRule(i, $event)"
+      ></app-rule-form>
+      <app-close-icon
+        class="close-icon"
+        (click)="removeRule(i)"
+      ></app-close-icon>
+    </div>
+  </div>
+</div>
+
+<app-button
+  (click)="addRule()"
+>
+  + NEW RULE
+</app-button>

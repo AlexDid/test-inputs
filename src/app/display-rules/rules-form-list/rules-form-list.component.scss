@@ -1,0 +1,29 @@
+@import 'src/styles/colors';
+
+.rules {
+  margin-bottom: 30px;
+
+  .rule-form {
+
+    .separator {
+      color: $lightGray;
+      font-weight: 600;
+      font-size: 16px;
+      margin: 10px 30px;
+    }
+
+    .rule-row {
+      display: flex;
+
+      * + * {
+        margin-left: 20px;
+      }
+
+      .close-icon {
+        margin-top: 9px;
+      }
+    }
+  }
+}
+
+

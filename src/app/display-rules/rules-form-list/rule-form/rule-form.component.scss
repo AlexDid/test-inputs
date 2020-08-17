@@ -1,0 +1,15 @@
+form {
+  display: flex;
+
+  .input {
+    width: 450px;
+
+    input {
+      width: calc(100% - 26px);
+    }
+  }
+
+  * + * {
+    margin-left: 20px;
+  }
+}

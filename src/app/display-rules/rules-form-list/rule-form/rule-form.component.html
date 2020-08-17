@@ -1,0 +1,46 @@
+<form *ngIf="form" [formGroup]="form">
+
+  <app-input-wrapper formControlNameString="page">
+    <select
+      formControlName="page"
+      name="page"
+    >
+      <option
+        *ngFor="let page of pagesMap | keyvalue"
+        [ngValue]="page.key"
+      >
+        {{ page.value }}
+      </option>
+    </select>
+  </app-input-wrapper>
+
+  <ng-container *ngIf="showCustomRuleInputs">
+    <app-input-wrapper formControlNameString="customRuleMatch">
+      <select
+        formControlName="customRuleMatch"
+        name="match"
+      >
+        <option
+          *ngFor="let match of customRuleMatchMap | keyvalue"
+          [value]="match.key"
+        >
+          {{ match.value }}
+        </option>
+      </select>
+    </app-input-wrapper>
+
+    <app-input-wrapper
+      class="input"
+      [errorsDictionary]="urlFieldErrors"
+      formControlNameString="customRuleUrl"
+    >
+      <input
+        type="text"
+        formControlName="customRuleUrl"
+        placeholder="Type a full or partial URL"
+        required
+      >
+    </app-input-wrapper>
+  </ng-container>
+
+</form>

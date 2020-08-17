@@ -1,0 +1,31 @@
+@import "src/styles/colors";
+
+.input-wrapper {
+
+  ::ng-deep input, ::ng-deep select {
+    border: 1px $lightGray solid;
+    border-radius: 3px;
+    padding: 8px 12px;
+    color: $darkGray;
+    min-width: 260px;
+    font-size: 16px;
+
+    &:focus, &:active {
+      border-color: $blue;
+      outline: none;
+      box-shadow: 0 0 0 2px $lightBlue;
+    }
+  }
+
+  ::ng-deep input {
+    height: 20px;
+  }
+}
+
+.error {
+  background-color: $redBkg;
+  border: 1px $redBorder solid;
+  border-radius: 3px;
+  padding: 13px 10px;
+  color: $darkRed;
+}

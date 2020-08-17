@@ -1,0 +1,36 @@
+@import 'src/styles/colors';
+
+button {
+  cursor: pointer;
+  background-color: white;
+  padding: 12px 16px;
+  color: black;
+  font-size: 17px;
+  border-radius: 6px;
+  border: 2px $buttonBorder solid;
+
+  &:hover {
+    background-color: $lightGray;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@keyframes buttonClickAnimation {
+  0% {
+    transform: scale(0.95);
+    border-color: $lightGray;
+    background-color: $lightGray;
+  }
+  100% {
+    transform: scale(1);
+    border-color: $buttonBorder;
+    background-color: white;
+  }
+}
+
+.animated-button {
+  animation: buttonClickAnimation 0.2s ease-out;
+}
