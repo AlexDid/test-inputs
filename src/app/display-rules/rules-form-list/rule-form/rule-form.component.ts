@@ -3,6 +3,7 @@ import { customRuleMatchMap, pagesMap } from '../../data';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomRuleMatch, Page, Rules } from '../../models';
 import { ErrorsDictionary, SubscriptionComponent, ValidationError } from '../../../shared/models';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-rule-form',
@@ -60,6 +61,7 @@ export class RuleFormComponent extends SubscriptionComponent implements OnInit, 
 
   private subscribeOnFormChanges(): void {
     this.form.valueChanges.pipe(
+      distinctUntilChanged((a, b) => Object.keys(a).every(key => a[key] === b[key])),
       this.getTakeUntilPipe()
     ).subscribe((value: Rules) => {
       this.toggleCustomFields(value);
